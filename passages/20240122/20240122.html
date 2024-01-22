@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>鐡根的blog</title>
+        <style type="text/css">
+            a{
+                text-decoration: none;
+            }
+            code{
+                font-family: 'Courier New', Courier, monospace;
+            }
+            .top-bar {
+                background-color: white;
+                height: 60px;
+                display: flex;
+                align-items: Center;
+                padding: 10px;
+                border-radius: 25px 25px 0px 0px;
+            }
+            .menu {
+                background-color: black;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                border-radius: 0px 0px 25px 25px;
+            }
+            .menuselected {
+                background-color: white;
+                height: 45px;
+                width: 150px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 25px 25px 25px 25px;
+            }
+            .passage {
+                background-color: white;
+                height: 1000px;
+                border-radius: 25px 25px 25px 25px;
+                margin-left:50px;
+                margin-right:50px;
+                margin-top:30px;
+                margin-bottom: 30px;
+            }
+            .footer {
+                background-color: black;
+                height: 60px;
+                display: flex;
+                align-items: Center;
+                padding: 10px;
+                border-radius: 25px 25px 25px 25px;
+            }
+            .spacer20 {
+                margin-left: 20px;
+            }
+            .spacer50 {
+                margin-left: 50px;
+            }
+            .menutext {
+                color: white;
+                font-family:"等线";
+                font-weight:bold;
+            }
+            .selectedmenutext {
+                color: black;
+                font-family:"等线";
+                font-weight:bold;
+            }
+            h1 {
+                color: black;
+                font-family:"等线";
+                font-weight:bold;
+                margin-left:50px;
+            }
+            p {
+                color: black;
+                font-family:"等线";
+                margin-left:50px;
+                margin-right: 50px;
+            }
+        </style>
+    </head>
+    <body style="background-color: gray;">
+        <div class = "top-bar">
+            <a href="../../index.html"><img class="spacer20" src="logo.png" alt="logo" height="50"></a>
+            
+        </div>
+        <div class = "menu">
+            
+                <a class="menutext spacer50" href="../../index.html">主页</a>
+            <div class = "menuselected spacer50">
+                <a class="selectedmenutext" href="../../likely.html">随便写写画画</a>
+            </div>
+            <a class="menutext spacer50" href="../../mcserver.html">MC服务器</a>
+        </div>
+        <div class="passage">
+            <br><br>
+            <h1 id="那些年踩过的坑之浮点数">那些年踩过的坑之浮点数</h1>
+            <p>众所周知，如
+                <code>5 / 2</code>这样的除法算式在cpp中只会返回2，但是如果乘上
+                <code>1.0</code>，那么精度的问题也就解决啦。
+            BUT
+            </p>
+            <pre>
+                <code class="language-cpp">
+                if((i/j*1.0)-(a/b*1.0) &lt; min &amp;&amp; (1.0*i/j) &gt;= (a/b*1.0)) {
+                    min = (i/j*1.0)-(a/b*1.0);
+                    mini = i;
+                    minj = j;
+                 }
+            </code>
+            </pre>
+            <p>有看出问题吗？
+            虽然看起来没有问题，但是它却卡了我很久。
+            经过老师的提醒我才发现要写成这样</p>
+            <pre>
+                <code>（1.0*i/j）
+            </code>
+            </pre>
+            <p>直接当场。。。</p>
+
+            <a class="selectedmenutext spacer50" href = "../../index.html">下一篇-></a>
+        </div>
+        <div class="footer">
+            <a class="menutext spacer50" href="https://space.bilibili.com/1551982251">B站</a>
+        </div>
+    </body>
+</html>
